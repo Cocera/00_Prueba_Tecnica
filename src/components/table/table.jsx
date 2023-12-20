@@ -11,6 +11,14 @@ const data = [
         price: 40,
         description: 'Description'
     },
+    {
+        id: '2',
+        image: 'url',
+        product: 'Pepe',
+        category: 'Cosas',
+        price: 45,
+        description: 'Description'
+    },
 ];
 
 const columns = [
