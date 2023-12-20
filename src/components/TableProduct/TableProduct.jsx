@@ -1,12 +1,8 @@
 import "./TableProduct.scss";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Space, Table, Tag } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
-
-import axios from "axios";
 import { getProducts } from "../../features/products/productsSlice";
-
-
 
 const columns = [
     {
@@ -80,15 +76,19 @@ const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
 };
 
+    
+
 const TableProduct = () => {
     const { products } = useSelector((state) => state.products);
     const dispatch = useDispatch();
 
-    dispatch(getProducts());
+    useEffect(() => {
+        dispatch(getProducts());
+    }, []);
 
-    // if (!products || products.length === 0) {
-    //     return <p>Cargando productos...</p>;
-    // };
+    if (!products || products.length === 0) {
+        return <p>Cargando productos...</p>;
+    };
 
     const data = products.map((product) => ({
         key: product.id,
@@ -99,8 +99,6 @@ const TableProduct = () => {
         description: product.description,
     }));
 
-    console.log("TableProduct.jsx", products);
-    
     return (
         <Table columns={columns} dataSource={data} onChange={onChange} />
     );
