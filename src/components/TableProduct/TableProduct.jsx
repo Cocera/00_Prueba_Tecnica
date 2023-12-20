@@ -1,25 +1,12 @@
-import "./table.scss";
+import "./TableProduct.scss";
 import React from 'react';
 import { Space, Table, Tag } from 'antd';
+import { useDispatch, useSelector } from "react-redux";
 
-const data = [
-    {
-        id: '1',
-        image: 'url',
-        product: 'John Brown',
-        category: 'Cosas',
-        price: 40,
-        description: 'Description'
-    },
-    {
-        id: '2',
-        image: 'url',
-        product: 'Pepe',
-        category: 'Cosas',
-        price: 45,
-        description: 'Description'
-    },
-];
+import axios from "axios";
+import { getProducts } from "../../features/products/productsSlice";
+
+
 
 const columns = [
     {
@@ -86,7 +73,6 @@ const columns = [
         title: 'Description',
         dataIndex: 'description',
         defaultSortOrder: 'descend',
-        sorter: (a, b) => a.age - b.age,
     },
 ];
 
@@ -94,11 +80,30 @@ const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
 };
 
-const TableData = () => {
-    console.log('llega al componente TableData')
+const TableProduct = () => {
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+
+    dispatch(getProducts());
+
+    // if (!products || products.length === 0) {
+    //     return <p>Cargando productos...</p>;
+    // };
+
+    const data = products.map((product) => ({
+        key: product.id,
+        image: product.image,
+        product: product.title,
+        category: product.category,
+        price: product.price,
+        description: product.description,
+    }));
+
+    console.log("TableProduct.jsx", products);
+    
     return (
         <Table columns={columns} dataSource={data} onChange={onChange} />
     );
 };
 
-export default TableData;
+export default TableProduct;

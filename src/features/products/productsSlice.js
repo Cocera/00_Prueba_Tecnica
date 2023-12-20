@@ -20,12 +20,11 @@ export const productsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
+        // OPTIONAL?
         reset: (state) => {
-            state.posts = []
+            state.products = [];
         }
     },
-    extraReducers: {}
 });
 
-export const { reset } = productsSlice.actions;
 export default productsSlice.reducer;

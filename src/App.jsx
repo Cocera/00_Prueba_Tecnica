@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import './App.css';
-import TableData from './components/table/table';
+import Home from './pages/Home/Home';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>Tu app</h1>
-      <TableData/>
+      <Home />
     </>
   )
 };
