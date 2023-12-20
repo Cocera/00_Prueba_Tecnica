@@ -1,0 +1,19 @@
+table {
+    text-align: left;
+}
+
+.td-main-info {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.img-container {
+    width: 5vw;
+    height: auto;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+}

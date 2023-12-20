@@ -27,7 +27,6 @@ export const productsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getProducts.fulfilled, (state, action) => {
-                // console.log('Fulfilled', action.payload);
                 return {
                     ...state,
                     loading: false,
@@ -35,7 +34,6 @@ export const productsSlice = createSlice({
                 };
             })
             .addCase(getProducts.rejected, (state, action) => {
-                // console.log('Rejected', action.error);
                 return {
                     ...state,
                     loading: false,

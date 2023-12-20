@@ -1,3 +1,4 @@
+import MyTable from "../../components/MyTable/MyTable";
 import TableProduct from "../../components/TableProduct/TableProduct";
 import "./Home.scss";
 
@@ -6,6 +7,7 @@ const Home = () => {
         <>
             <h1>Esto es la home</h1>
             <TableProduct />
+            <MyTable />
         </>
     )
 };
