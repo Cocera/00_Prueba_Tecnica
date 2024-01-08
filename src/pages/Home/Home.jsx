@@ -7,7 +7,7 @@ const Home = () => {
         <>
             <h1>Esto es la home</h1>
             <TableProduct />
-            <MyTable />
+            {/* <MyTable /> */}
         </>
     )
 };
